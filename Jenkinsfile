@@ -6,10 +6,15 @@ pipeline {
         DOCKER_HUB_REPO = 'your-dockerhub-username/your-python-app'
     }
 
-    stages {
+stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/venkey12319/Python-jenkins-PP-1.git', branch: 'main'
+                retry(3) {
+                    git(
+                        url: 'https://github.com/venkey12319/Python-jenkins-PP-1.git',
+                        branch: 'main'
+                    )
+                }
             }
         }
 
