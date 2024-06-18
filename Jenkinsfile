@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/venkey12319/Python-jenkins-PP-1.git'
+                git 'https://github.com/venkey12319/Python-jenkins-PP-1.git', branch: 'main'
             }
         }
 
