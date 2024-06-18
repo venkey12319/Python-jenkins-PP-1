@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = credentials('venkat-docker-hub-v')
+        DOCKER_HUB_CREDENTIALS = credentials('Docker_AWS1258')
         DOCKER_IMAGE = "venkateshaws/my-app"
     }
 
