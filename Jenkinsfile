@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/venkey12319/Node.Js-Jenkins.git'
+                git 'https://github.com/venkey12319/Python-jenkins-PP-1.git'
             }
         }
 
