@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/venkey12319/Python-jenkins-PP-1.git', credentialsId: 'docker-hub-credentials-id'
+                git 'https://github.com/venkey12319/Python-jenkins-PP-1.git'
             }
         }
 
@@ -40,10 +40,10 @@ pipeline {
 
     post {
         always {
-            cleanWs() // Clean up the workspace after running the pipeline
+            echo 'Pipeline completed'
         }
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'Pipeline succeeded! Image pushed to Docker Hub.'
         }
         failure {
             echo 'Pipeline failed!'
