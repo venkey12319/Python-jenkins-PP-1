@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_USERNAME = 'venkateshaws'
+        DOCKER_PASSWORD = 'Docker_AWS1258'
+        DOCKER_IMAGE = "venkateshaws/my-app"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -11,14 +17,24 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("venkateshaws/my-app:latest")
+                    dockerImage = docker.build("${DOCKER_IMAGE}:latest")
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_USERNAME, DOCKER_PASSWORD) {
+                        dockerImage.push()
+                    }
                 }
             }
         }
 
         stage('Cleanup') {
             steps {
-                sh 'docker rmi venkateshaws/my-app:latest'
+                sh 'docker rmi ${DOCKER_IMAGE}:latest'
             }
         }
     }
