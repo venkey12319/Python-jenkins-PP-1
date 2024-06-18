@@ -38,3 +38,16 @@ pipeline {
         }
     }
 }
+
+    post {
+        always {
+            cleanWs() // Clean up the workspace after running the pipeline
+        }
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
