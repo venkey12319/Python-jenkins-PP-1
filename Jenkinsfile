@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = credentials('123456')
+        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials-id')
         DOCKER_IMAGE = "yourdockerhubusername/my-app"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/venkey12319/Python-jenkins-PP-1.git', credentialsId: '123456'
+                git branch: 'main', url: 'https://github.com/venkey12319/Python-jenkins-PP-1.git', credentialsId: 'docker-hub-credentials-id'
             }
         }
 
