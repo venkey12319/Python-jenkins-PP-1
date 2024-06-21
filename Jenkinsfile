@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
-        DOCKER_HUB_REPO = 'venkey08ec49@gmail.com/my-python-app'
+        DOCKER_HUB_REPO = 'venkateshaws/my-python-app'
     }
 
 stages {
